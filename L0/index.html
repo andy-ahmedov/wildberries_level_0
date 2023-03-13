@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Получить данные по  ID</title>
+	<script>
+		function sendGetRequest() {
+			// Получаем значение поля ввода ID
+			var id = document.getElementById("id").value;
+			// Создаем объект XMLHttpRequest
+			var xhr = new XMLHttpRequest();
+			// Устанавливаем обработчик ответа сервера
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					// Преобразуем ответ сервера в объект JavaScript
+					var response = JSON.parse(xhr.responseText);
+					// Выводим результат на страницу
+					document.getElementById("result").innerHTML = JSON.stringify(response, undefined, 4);
+				}
+			};
+			// Открываем соединение и отправляем GET-запрос на сервер по ID
+			xhr.open("GET", "http://localhost:8080/order?id=" + id, true);
+			xhr.send();
+		}
+	</script>
+</head>
+<body>
+	<h1>Получение данных по ID</h1>
+	<label for="id">Введите ID:</label>
+	<input type="text" id="id">
+	<button onclick="sendGetRequest()">Отправить запрос</button>
+	<br><br>
+	<div id="result"></div>
+</body>
+</html>
+
+
