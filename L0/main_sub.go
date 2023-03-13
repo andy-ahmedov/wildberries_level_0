@@ -16,11 +16,6 @@ import (
 	_ "github.com/nats-io/stan.go"
 )
 
-type From_db struct {
-	id    int
-	value string
-}
-
 type jsonModel struct {
 	Order_uid    string `json:"order_uid"`
 	Track_number string `json:"track_number"`
@@ -86,7 +81,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	} else {
-		fmt.Println("Evriiiica!")
+		fmt.Println("Successful connection\n")
 	}
 	defer db.Close()
 
@@ -130,20 +125,16 @@ func main() {
 				fmt.Println("Incorrect json!")
 				panic(err)
 			}
-			if model.Oof_shard == "" {
-				fmt.Println("Struct is empty!")
-			} else {
-				fmt.Println(model)
-				id++
-				myCash[id] = model
-				_, err = db.Exec("INSERT INTO order_id (value) VALUES ($1)", m.Data)
-				fmt.Println("Value is correct")
-				if err != nil {
-					panic(err)
-				}
+			id++
+			myCash[id] = model
+			_, err = db.Exec("INSERT INTO order_id (value) VALUES ($1)", m.Data)
+			fmt.Printf("%d Done\n", id)
+			if err != nil {
+				panic(err)
 			}
 		}, stan.DeliverAllAvailable())
 	}()
+	//	NATS-STREAMING
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "GET" {
@@ -179,5 +170,4 @@ func main() {
 
 	sub.Unsubscribe()
 	sc.Close()
-	//	NATS-STREAMING
 }
