@@ -18,13 +18,13 @@
 ***
 ## **Как работать с проектом:**
 
-* **_make:_** make server_run
+* `make`: make server_run
 
-* **_make server_run:_** запустить натс стриминг, паблиш и сервис
-* **_make kill:_** убить процессы, запущенные 'make server_run'
-* **_make postgre:_** создать базу данных wildberries и создать в ней таблицу order_id
-* **_make del_db:_** удалить базу данных wildberries и таблицу order_id
-* **_make del_table:_** удалить таблицу order_id
-* **_make table:_** создать таблицу order_id
-* **_make show_table:_** вывести содержимое таблицы order_id
-* **_make reset_table:_** обнулить таблицу order_id
+* `make server_run`: запустить натс стриминг, паблиш и сервис
+* `make kill`: убить процессы, запущенные `make server_run`
+* `make postgre`: создать базу данных wildberries и создать в ней таблицу **order_id**
+* `make del_db`: удалить базу данных wildberries и таблицу **order_id**
+* `make del_table`: удалить таблицу **order_id**
+* `make table`: создать таблицу **order_id**
+* `make show_table`: вывести содержимое таблицы **order_id**
+* `make reset_table`: обнулить таблицу **order_id**
