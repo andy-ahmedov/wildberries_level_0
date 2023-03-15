@@ -1,2 +1,2 @@
-# wildberries
-Repository for education projects in WB
+# WB Tech Golang
+**Тестовые задания от Wildberries по Golang**
