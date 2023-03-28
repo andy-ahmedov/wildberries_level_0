@@ -1,4 +1,11 @@
-# WB Tech: level # 0 (Golang)
+<h1 align="center"> WB Tech: level # 0 (Golang)</h1>
+
+<p align="center">
+  <img alt="Golang" src="https://img.shields.io/badge/Golang-74.6 %25-blue?style=for-the-badge&logo=appveyor">
+  <img alt="Golang" src="https://img.shields.io/badge/HTML-14.3 %25-red?style=for-the-badge&logo=appveyor">
+  <img alt="Golang" src="https://img.shields.io/badge/Makefile-11.1 %25-green?style=for-the-badge&logo=appveyor">
+</p>
+  
 
 ## **Тестовое задание**
 
